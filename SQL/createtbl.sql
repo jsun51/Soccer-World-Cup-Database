@@ -1,7 +1,5 @@
--- Include your create table DDL statements in this file.
--- Make sure to terminate each statement with a semicolon (;)
 
--- LEAVE this statement on. It is required to connect to your database.
+-- It is required to connect to your database.
 CONNECT TO cs421;
 
 -- Remember to put the create table ddls for the tables with foreign key references
