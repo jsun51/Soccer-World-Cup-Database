@@ -26,7 +26,7 @@ goals.
 ![ER](https://github.com/jsun51/Soccer-World-Cup-Database/blob/main/Images/ER.png)
 
 ```bash
-Teams(<u>country<\u>, status, goal_differential, web_URL, gname)  
+Teams(<ins>country</ins>, status, goal_differential, web_URL, gname)  
   web_URL foreign key referencing NationalAssociation  
   web_URL NOT NULL  
   gname foreign key referencing Groups  
