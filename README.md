@@ -94,6 +94,7 @@ Buys(<ins>email</ins>, <ins>date</ins>, <ins>seatNumber</ins>, <ins>sname</ins>,
   &emsp;sname foreign key referencing Stadiums  
   &emsp;mid foreign key referencing Matches  
 
+Detailed documentation of the database design including more details about purchasing tickets, assumptions, and restrictions can be found here: [Database Design Documentation](Data_Model/Documentation/data_design.pdf).
 
 ## Database Creation 
 
@@ -128,9 +129,12 @@ The current data is just mock data used for testing our database and application
 ### Queries
 Helpful and interesting queries to run on the database can be found here: [Queries](SQL/queries.sql).
 
-## Application
-An application program witten in Java with a simple user-friendly interface can be found here: [Soccer Database Application](Application/Soccer.java).
+Detailed documentation of the database creation process including creating tables, loading tables, and query examples can be found here: [Database Creation Documentation](Data_Model/Documentation/database_creation.pdf).
 
+## Application
+An application program witten in Java with a simple user-friendly interface can be found here: [Soccer Database Application](Application/Soccer.java). A sample of the application and possible options is shown below: ![App](https://github.com/jsun51/Soccer-World-Cup-Database/blob/main/Images/app_example.png)
+
+Detailed documentation, constraints, and usage of the application can be found here: [App Documentation](Data_Model/Documentation/application.pdf).
 ## Contributors
  * *Dominic Weber*
 
