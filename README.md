@@ -99,7 +99,7 @@ Detailed documentation of the database design including more details about purch
 ## Database Creation 
 
 ### Create Tables
-The tables created from the relational translation can be found here: [Create Table Script](SQL/create_table.sql).
+The tables created from the relational translation can be found here: [Create Table DDL Statements](SQL/create_table.sql).
 
 Note that there are some key differences between the relational translation and the relations created in DB2:
   
@@ -122,12 +122,12 @@ attributes, possible by the one-to-one constraint between them (i.e. no relation
 National Associations).
 
 ### Load Tables
-The script used to load the tables with data can be found here: [Insert Data Script](SQL/load_data.sql).
+The script used to load the tables with data can be found here: [Insert Data Statements](SQL/load_data.sql).
 
 The current data is just mock data used for testing our database and application. You can use it as a template for your own data.
 
 ### Queries
-Helpful and interesting queries to run on the database can be found here: [Queries](SQL/queries.sql).
+Helpful and interesting queries to run on the database can be found here: [Query Examples](SQL/queries.sql).
 
 Detailed documentation of the database creation process including creating tables, loading tables, and query examples can be found here: [Database Creation Documentation](Data_Model/Documentation/database_creation.pdf).
 
