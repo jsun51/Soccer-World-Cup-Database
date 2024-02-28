@@ -1,7 +1,5 @@
-/*Give the URLs that have the most evaluations and the number of evaluations they have. The output
-should have url and then numevaluations. The URLs should be returned in alphabetical order.*/
-
---Query A
+/* Lists all the stadium names and their locations and the match date of matches in which player 
+Lionel Messi has played and scored at least one goal */
 SELECT s.sname, s.location, temp.date
 FROM Stadiums s, (SELECT m.sname, m.date
                   FROM Matches m
@@ -14,7 +12,7 @@ WHERE s.sname = temp.sname
 ;
 
 
---B
+/* Lists the name, shirt number and country of all players that have played in all matches of their teams */
 SELECT final.pname, final.number, final.Team, final.nummatches
 FROM (SELECT p.pid, p.pname, p.number, temp2.Team, temp2.nummatches
       FROM Players p, (SELECT temp1.Team, count(*) AS nummatches
@@ -34,7 +32,8 @@ FROM (SELECT p.pid, p.pname, p.number, temp2.Team, temp2.nummatches
 WHERE final.pid =temp3.pid and final.nummatches = temp3.numgamesplayed
 ;
 
---C
+/* Lists for each team, the country, the number of matches they have played and the total number
+of goals they have scored during normal play */
 SELECT final1.country AS Team, final1.nummatches, final2.numgoals
 FROM (SELECT t.country, COALESCE(nummatches, 0) AS nummatches
       FROM Teams t LEFT OUTER JOIN (SELECT temp1.Team, count(*) AS nummatches
@@ -56,7 +55,8 @@ WHERE final1.country = final2.country
 ORDER BY Team
 ;
 
---D
+/* This query returns the email and the total amount of money spent by theclients that have spent the most money when buying 
+tickets across all the games in thetournaments.*/
 SELECT temp1.email, temp2.MostSpent
 FROM
     (SELECT b.email,SUM(t.price) AS TotalSpent
@@ -84,7 +84,11 @@ FROM
 WHERE temp1.TotalSpent = temp2.MostSpent
 ;
 
---E
+/* This query returns information about the head referee for every unique game
+played in the tournament, as well as sanctions given to the players in that match. In other words,
+for every match in the database, this query returns the head referee name, their country, the 2
+teams (country names) that played in the match, the match date and the total amount of yellow
+cards and red cards given to the players during this match.*/
 SELECT final2.name AS Referee, final2.refcountry, COALESCE(final1.numyellowcards, 0) AS match_yellowcards,
        COALESCE(final1.numredcards, 0) AS match_redcards, final2.date, final2.team1 AS Match_Team1, final2.team2 AS Match_Team2
 FROM (SELECT DISTINCT temp1.mid, temp1.numyellowcards, temp2.numredcards
