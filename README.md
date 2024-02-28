@@ -23,26 +23,24 @@ are penalty kicks. Each team has five penalty kicks and if they are still tied a
 goals.
 
 ## Entity-Relationship Model and Relational Translation
-![ER]([https://github.com/jsun51/Soccer-World-Cup-Database/Images/35745008/ER.png](https://github.com/jsun51/Soccer-World-Cup-Database/blob/main/Images/ER.png))
+![ER](https://github.com/jsun51/Soccer-World-Cup-Database/blob/main/Images/ER.png)
 
 ```bash
-python simulator.py --player_1 human_agent --player_2 mcts_agent --display
+Teams(country, status, goal_differential, web_URL, gname)  
+web_URL foreign key referencing NationalAssociation  
+web_URL NOT NULL  
+gname foreign key referencing Groups  
+gname NOT NULL  
+  
+Grouped(country, gname, points)  
+country foreign key referencing Teams  
+gname foreign key referencing Groups  
 
-Teams(country, status, goal_differential, web_URL, gname)
-web_URL foreign key referencing NationalAssociation
-web_URL NOT NULL
-gname foreign key referencing Groups
-gname NOT NULL
-
-Grouped(country, gname, points)
-country foreign key referencing Teams
-gname foreign key referencing Groups
-
-Groups(gname)
-National Associations(web_URL, aname, country)
-country foreign key referencing Teams
-country NOT NULL
-
+Groups(gname)  
+National Associations(web_URL, aname, country)  
+country foreign key referencing Teams  
+country NOT NULL  
+  
 Players(pid, pname, number, position, DOB, country)
 country foreign key referencing Teams
 country NOT NULL
