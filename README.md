@@ -25,72 +25,72 @@ are penalty kicks. Each team has five penalty kicks and if they are still tied a
 ![ER](https://github.com/jsun51/Soccer-World-Cup-Database/blob/main/Images/ER.png)
 
 Teams(<ins>country</ins>, status, goal_differential, web_URL, gname)  
-  web_URL foreign key referencing NationalAssociation  
-  web_URL NOT NULL  
-  gname foreign key referencing Groups  
-  gname NOT NULL  
+  &emsp;web_URL foreign key referencing NationalAssociation  
+  &emsp;web_URL NOT NULL  
+  &emsp;gname foreign key referencing Groups  
+  &emsp;gname NOT NULL  
   
 Grouped(<ins>country</ins>, <ins>gname</ins>, points)  
-  country foreign key referencing Teams  
-  gname foreign key referencing Groups  
+  &emsp;country foreign key referencing Teams  
+  &emsp;gname foreign key referencing Groups  
 
 Groups(<ins>gname</ins>)
   
 National Associations(<ins>web_URL</ins>, aname, country)  
-  country foreign key referencing Teams  
-  country NOT NULL  
+  &emsp;country foreign key referencing Teams  
+  &emsp;country NOT NULL  
   
 Players(<ins>pid</ins>, pname, number, position, DOB, country)  
-  country foreign key referencing Teams  
-  country NOT NULL  
+  &emsp;country foreign key referencing Teams  
+  &emsp;country NOT NULL  
   
 Coaches(<ins>cid</ins>, cname, DOB, role, country)  
-  country foreign key referencing Teams  
-  country NOT NULL  
+  &emsp;country foreign key referencing Teams  
+  &emsp;country NOT NULL  
 
 Referees(<ins>rid</ins>, rname, country, experience)  
 
 Stadiums(<ins>sname</ins>, capacity, location)  
 
 Matches(<ins>mid</ins>, match_length, score, start_time, round, date, sname)  
-  sname foreign key referencing Stadiums  
-  sname NOT NULL  
+  &emsp;sname foreign key referencing Stadiums  
+  &emsp;sname NOT NULL  
 
 Scheduled(<ins>country</ins>, <ins>mid</ins>)  
-  country foreign key referencing Teams   
-  mid foreign key referencing Matches  
+  &emsp;country foreign key referencing Teams   
+  &emsp;mid foreign key referencing Matches  
 
 Refereed(<ins>rid</ins>, <ins>mid</ins>, role)
-  rid foreign key referencing Referees  
-  mid foreign key referencing Matches  
+  &emsp;rid foreign key referencing Referees  
+  &emsp;mid foreign key referencing Matches  
 
 Played(<ins>pid</ins>, <ins>mid</ins>, y_cards, r_card, specific_position, time_in, time_out)  
-  pid foreign key referencing Players  
-  mid foreign key referencing Matches  
+  &emsp;pid foreign key referencing Players  
+  &emsp;mid foreign key referencing Matches  
 
 Goals(<ins>gid</ins>, pid, mid, penalty, occurrence_order, scorer_name, time)  
-  pid foreign key referencing Players  
-  pid NOT NULL  
-  mid foreign key referencing Matches  
-  mid NOT NULL  
+  &emsp;pid foreign key referencing Players  
+  &emsp;pid NOT NULL  
+  &emsp;mid foreign key referencing Matches  
+  &emsp;mid NOT NULL  
 
 Seats(<ins>seatNumber</ins>, <ins>sname</ins>, sectionNumber)  
-  sname foreign key referencing Stadiums  
-  sname NOT NULL  
+  &emsp;sname foreign key referencing Stadiums  
+  &emsp;sname NOT NULL  
 
 Clients(<ins>email</ins>, name, password)  
 
 Tickets(<ins>date</ins>, <ins>seatNumber</ins>, <ins>sname</ins>, <ins>mid</ins>, price, purchase_status)  
-  seatNumber foreign key referencing Seat  
-  sname foreign key referencing Stadiums  
-  mid foreign key referencing Matches  
+  &emsp;seatNumber foreign key referencing Seat  
+  &emsp;sname foreign key referencing Stadiums  
+  &emsp;mid foreign key referencing Matches  
 
 Buys(<ins>email</ins>, <ins>date</ins>, <ins>seatNumber</ins>, <ins>sname</ins>, <ins>mid</ins>)  
-  email foreign key referencing Client  
-  date foreign key referencing Tickets  
-  seatNumber foreign key referencing Seat  
-  sname foreign key referencing Stadiums  
-  mid foreign key referencing Matches  
+  &emsp;email foreign key referencing Client  
+  &emsp;date foreign key referencing Tickets  
+  &emsp;seatNumber foreign key referencing Seat  
+  &emsp;sname foreign key referencing Stadiums  
+  &emsp;mid foreign key referencing Matches  
 
 
 
