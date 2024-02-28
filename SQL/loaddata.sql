@@ -1,5 +1,4 @@
 -- Include your INSERT SQL statements in this file.
--- Make sure to terminate each statement with a semicolon (;)
 
 -- It is required to connect to your database.
 CONNECT TO cs421;
