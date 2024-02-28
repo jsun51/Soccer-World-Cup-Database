@@ -19,69 +19,79 @@ cup, and the losers play each other for 3rd place. In the context of this projec
 that decide who plays against whom in the round of 16, quarterfinals or semifinals. While matches in the group
 round can be tied, all other matches must have a winner. Thus, if the scores are tied after the 90 minutes regular
 time, there are 30 minutes extra time to play, called prolongation, and if the game is still tied after that, there
-are penalty kicks. Each team has five penalty kicks and if they are still tied after that, the penalty shootout continues, with each team getting an extra penalty kick until tie breaks with the team that is first to have more
-<ins>goals</ins>.
+are penalty kicks. Each team has five penalty kicks and if they are still tied after that, the penalty shootout continues, with each team getting an extra penalty kick until tie breaks with the team that is first to have more goals.
 
 ## Entity-Relationship Model and Relational Translation
 ![ER](https://github.com/jsun51/Soccer-World-Cup-Database/blob/main/Images/ER.png)
 
-```bash
 Teams(<ins>country</ins>, status, goal_differential, web_URL, gname)  
   web_URL foreign key referencing NationalAssociation  
   web_URL NOT NULL  
   gname foreign key referencing Groups  
   gname NOT NULL  
   
-Grouped(country, gname, points)  
+Grouped(<ins>country</ins>, <ins>gname</ins>, points)  
   country foreign key referencing Teams  
   gname foreign key referencing Groups  
 
-Groups(gname)
+Groups(<ins>gname</ins>)
   
-National Associations(web_URL, aname, country)  
+National Associations(<ins>web_URL</ins>, aname, country)  
   country foreign key referencing Teams  
   country NOT NULL  
   
-Players(pid, pname, number, position, DOB, country)
-country foreign key referencing Teams
-country NOT NULL
-Coaches(cid, cname, DOB, role, country)
-country foreign key referencing Teams
-country NOT NULL
-Referees(rid, rname, country, experience)
-Stadiums(sname, capacity, location)
-Matches(mid, match_length, score, start_time, round, date, sname)
-sname foreign key referencing Stadiums
-sname NOT NULL
-Scheduled(country, mid)
-country foreign key referencing Teams
-mid foreign key referencing Matches
-Refereed(rid, mid, role)
-rid foreign key referencing Referees
-mid foreign key referencing Matches
-Played(pid, mid, y_cards, r_card, specific_position, time_in, time_out)
-pid foreign key referencing Players
-mid foreign key referencing Matches
-Goals(gid, pid, mid, penalty, occurrence_order, scorer_name, time)
-pid foreign key referencing Players
-pid NOT NULL
-mid foreign key referencing Matches
-mid NOT NULL
-Seats(seatNumber, sname, sectionNumber)
-sname foreign key referencing Stadiums
-sname NOT NULL
-Clients(email, name, password)
-Tickets(date, seatNumber, sname, mid, price, purchase_status)
-seatNumber foreign key referencing Seat
-sname foreign key referencing Stadiums
-mid foreign key referencing Matches
-Buys(email, date, seatNumber, sname, mid)
-email foreign key referencing Client
-date foreign key referencing Tickets
-seatNumber foreign key referencing Seat
-sname foreign key referencing Stadiums
-mid foreign key referencing Matches
-```
+Players(<ins>pid</ins>, pname, number, position, DOB, country)  
+  country foreign key referencing Teams  
+  country NOT NULL  
+  
+Coaches(<ins>cid</ins>, cname, DOB, role, country)  
+  country foreign key referencing Teams  
+  country NOT NULL  
+
+Referees(<ins>rid</ins>, rname, country, experience)  
+
+Stadiums(<ins>sname</ins>, capacity, location)  
+
+Matches(<ins>mid</ins>, match_length, score, start_time, round, date, sname)  
+  sname foreign key referencing Stadiums  
+  sname NOT NULL  
+
+Scheduled(<ins>country</ins>, <ins>mid</ins>)  
+  country foreign key referencing Teams   
+  mid foreign key referencing Matches  
+
+Refereed(<ins>rid</ins>, <ins>mid</ins>, role)
+  rid foreign key referencing Referees  
+  mid foreign key referencing Matches  
+
+Played(<ins>pid</ins>, <ins>mid</ins>, y_cards, r_card, specific_position, time_in, time_out)  
+  pid foreign key referencing Players  
+  mid foreign key referencing Matches  
+
+Goals(<ins>gid</ins>, pid, mid, penalty, occurrence_order, scorer_name, time)  
+  pid foreign key referencing Players  
+  pid NOT NULL  
+  mid foreign key referencing Matches  
+  mid NOT NULL  
+
+Seats(<ins>seatNumber</ins>, <ins>sname</ins>, sectionNumber)  
+  sname foreign key referencing Stadiums  
+  sname NOT NULL  
+
+Clients(<ins>email</ins>, name, password)  
+
+Tickets(<ins>date</ins>, <ins>seatNumber</ins>, <ins>sname</ins>, <ins>mid</ins>, price, purchase_status)  
+  seatNumber foreign key referencing Seat  
+  sname foreign key referencing Stadiums  
+  mid foreign key referencing Matches  
+
+Buys(<ins>email</ins>, <ins>date</ins>, <ins>seatNumber</ins>, <ins>sname</ins>, <ins>mid</ins>)  
+  email foreign key referencing Client  
+  date foreign key referencing Tickets  
+  seatNumber foreign key referencing Seat  
+  sname foreign key referencing Stadiums  
+  mid foreign key referencing Matches  
+
 
 
 ## Implementation 
