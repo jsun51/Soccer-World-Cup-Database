@@ -19,8 +19,8 @@ cup, and the losers play each other for 3rd place. In the context of this projec
 that decide who plays against whom in the round of 16, quarterfinals or semifinals. While matches in the group
 round can be tied, all other matches must have a winner. Thus, if the scores are tied after the 90 minutes regular
 time, there are 30 minutes extra time to play, called prolongation, and if the game is still tied after that, there
-are penalty kicks. Each team has five penalty kicks and if they are still tied after that, the penalty shootout continues, with each team getting an extra penalty kick until tie breaks with the team that is first to have more
-goals.
+are penalty kicks. Each team has five penalty kicks and if they are still tied after that, the penalty shootout continues, with each team getting an extra penalty kick until tie breaks with the team that is first to have more
+<u>goals</u>.
 
 ## Entity-Relationship Model and Relational Translation
 ![ER](https://github.com/jsun51/Soccer-World-Cup-Database/blob/main/Images/ER.png)
