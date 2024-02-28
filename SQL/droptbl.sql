@@ -1,5 +1,4 @@
 -- Include your drop table DDL statements in this file.
--- Make sure to terminate each statement with a semicolon (;)
 
 -- Required to connect to your database.
 CONNECT TO cs421;
