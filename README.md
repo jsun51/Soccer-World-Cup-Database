@@ -122,7 +122,7 @@ attributes, possible by the one-to-one constraint between them (i.e. no relation
 National Associations).
 
 ### Load Tables
-The script used to load the tables with data can be found here: [Insert Data Statements](SQL/load_data.sql).
+The script used to load the tables with data can be found here: [Insert Data DML Statements](SQL/load_data.sql).
 
 The current data is just mock data used for testing our database and application. You can use it as a template for your own data.
 
